@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+import { baseCollaborators } from './data/baseCollaborators.js';
+import Collaborators from './components/Collaborators.jsx';
+import FormAdd from './components/FormAdd.jsx';
+import Header from './components/Header.jsx';
 
 function App() {
+
+  const [collaborator, setCollaborator] = useState('');
+  const [mail, setMail] = useState('');
+  const [listCollaborators, setListCollaborators] = useState(baseCollaborators);
+  const [listFiltered, setListFiltered] = useState(listCollaborators);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <Header title="Administrador de colaboradores" />
+      <div className="container p-4">
+        <FormAdd 
+          collaborator={collaborator}
+          mail={mail}
+          listCollaborators={listCollaborators} 
+          listFiltered={listFiltered}
+          setCollaborator={setCollaborator}
+          setMail={setMail}
+          setListCollaborators={setListCollaborators}
+          setListFiltered={setListFiltered} />
+
+        <Collaborators 
+          list={listCollaborators} 
+          listFiltered={listFiltered} 
+          setListFiltered={setListFiltered} 
+          setListCollaborators={setListCollaborators} />
+      </div>
+    </main>
   );
 }
 
