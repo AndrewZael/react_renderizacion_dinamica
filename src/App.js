@@ -23,7 +23,8 @@ function App() {
         <Collaborators 
           list={listCollaborators} 
           listFiltered={listFiltered} 
-          setListFiltered={setListFiltered} />
+          setListFiltered={setListFiltered} 
+          setListCollaborators={setListCollaborators} />
       </div>
     </main>
   );

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Alert  from 'react-bootstrap/Alert';
 
 const FormAdd = (props) => {
-    
+
     const [showAlert, setShowAlert] = useState(true);
     const [collaboratorExist, setCollaboratorExist] = useState(false);
     const [collaborator, setCollaborator] = useState({});
@@ -23,7 +23,7 @@ const FormAdd = (props) => {
       const { name, value } = e.target;
       setCollaborator(prev => ({
         ...prev,
-        ["id"]: props.listCollaborators.length + 1,
+        ["id"]: (new Date().getTime()).toString(36),
         [name]: value
       }));
     }
@@ -31,8 +31,7 @@ const FormAdd = (props) => {
     const validatorCollaborator = mail => props.listCollaborators.some(c => c.mail === mail);
 
     return(
-        <form onSubmit={(e) => add(e)
-          } className="mb-4 row align-items-end">
+        <form onSubmit={(e) => add(e)} className="mb-4 row align-items-end">
           <div className="col-12 col-md-4">
             <label htmlFor="input-name" className="small">Nombre colaborador</label>
             <input onChange={setValues}
@@ -57,8 +56,10 @@ const FormAdd = (props) => {
           { 
             (collaboratorExist && showAlert) ? 
               <div className='col-12'>
-                <Alert variant="danger" 
-                  onClose={() => setShowAlert(false)} dismissible className='mt-3 mb-0'>Colaborador ya existe</Alert>
+                <Alert variant="warning" 
+                  onClose={() => setShowAlert(false)} dismissible className='mt-3 mb-0'>
+                    Colaborador ya existe
+                   </Alert>
               </div> : null 
           }
 

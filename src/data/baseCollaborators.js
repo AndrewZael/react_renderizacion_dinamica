@@ -1,16 +1,16 @@
 export const baseCollaborators = [
     {
-        id: 1,
+        id: 'lc0vnp36',
         name: "Alfonso Guzmán",
         mail: "aguzman@colaborador.com"
     },
     {
-        id: 2,
+        id: 'lc0vo8ig',
         name: "Jorge Perez",
         mail: "jPerez@colaborador.com"
     },
     {
-        id: 3,
+        id: 'lc0vofqo',
         name: "Andres Valdés",
         mail: "avaldes@colaborador.com"
     },
