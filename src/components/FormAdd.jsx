@@ -1,13 +1,23 @@
 import { useState } from 'react';
+import Alert  from 'react-bootstrap/Alert';
 
 const FormAdd = (props) => {
     
+    const [showAlert, setShowAlert] = useState(true);
+    const [collaboratorExist, setCollaboratorExist] = useState(false);
     const [collaborator, setCollaborator] = useState({});
     const add = (e) => {
         e.preventDefault();
-        props.setListCollaborators([...props.listCollaborators, collaborator]);
-        props.setListFiltered([...props.listFiltered, collaborator]);
-        e.target.reset();    }
+        if(validatorCollaborator(collaborator.mail)){
+            setCollaboratorExist(true);
+            setShowAlert(true);
+        }else{
+            props.setListCollaborators([...props.listCollaborators, collaborator]);
+            props.setListFiltered([...props.listFiltered, collaborator]);
+            e.target.reset();
+            setCollaboratorExist(false);
+        }
+    }
 
     const setValues = e => {
       const { name, value } = e.target;
@@ -17,6 +27,8 @@ const FormAdd = (props) => {
         [name]: value
       }));
     }
+
+    const validatorCollaborator = mail => props.listCollaborators.some(c => c.mail === mail);
 
     return(
         <form onSubmit={(e) => add(e)
@@ -41,7 +53,18 @@ const FormAdd = (props) => {
           <div className="col-12 col-md-4">
             <button className="btn btn-primary">Agregar colaborador</button>
           </div>
+
+          { 
+            (collaboratorExist && showAlert) ? 
+              <div className='col-12'>
+                <Alert variant="danger" 
+                  onClose={() => setShowAlert(false)} dismissible className='mt-3 mb-0'>Colaborador ya existe</Alert>
+              </div> : null 
+          }
+
         </form>
+
+
     )
 }
 export default FormAdd;
