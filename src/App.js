@@ -7,7 +7,6 @@ import Header from './components/Header.jsx';
 
 function App() {
 
-  const [collaborator, setCollaborator] = useState({});
   const [listCollaborators, setListCollaborators] = useState(baseCollaborators);
   const [listFiltered, setListFiltered] = useState(listCollaborators);
 
@@ -16,18 +15,15 @@ function App() {
       <Header title="Administrador de colaboradores" />
       <div className="container p-4">
         <FormAdd 
-          collaborator={collaborator}
           listCollaborators={listCollaborators} 
           listFiltered={listFiltered}
-          setCollaborator={setCollaborator}
           setListCollaborators={setListCollaborators}
           setListFiltered={setListFiltered} />
 
         <Collaborators 
           list={listCollaborators} 
           listFiltered={listFiltered} 
-          setListFiltered={setListFiltered} 
-          setListCollaborators={setListCollaborators} />
+          setListFiltered={setListFiltered} />
       </div>
     </main>
   );

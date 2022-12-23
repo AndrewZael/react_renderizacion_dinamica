@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Filter from "./Filter.jsx";
 
-const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborators }) => {
+const Collaborators = ({ list, listFiltered, setListFiltered }) => {
     
     return(
         <div className="border shadow-sm rounded overflow-hidden">

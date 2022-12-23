@@ -2,16 +2,16 @@ import { useState } from 'react';
 
 const FormAdd = (props) => {
     
-    const [user, setUser] = useState({});
+    const [collaborator, setCollaborator] = useState({});
     const add = (e) => {
         e.preventDefault();
-        props.setListCollaborators([...props.listCollaborators, user]);
-        props.setListFiltered([...props.listFiltered, user]);
+        props.setListCollaborators([...props.listCollaborators, collaborator]);
+        props.setListFiltered([...props.listFiltered, collaborator]);
         e.target.reset();    }
 
     const setValues = e => {
       const { name, value } = e.target;
-      setUser(prev => ({
+      setCollaborator(prev => ({
         ...prev,
         ["id"]: props.listCollaborators.length + 1,
         [name]: value
