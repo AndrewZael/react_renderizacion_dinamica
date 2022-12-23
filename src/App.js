@@ -7,8 +7,7 @@ import Header from './components/Header.jsx';
 
 function App() {
 
-  const [collaborator, setCollaborator] = useState('');
-  const [mail, setMail] = useState('');
+  const [collaborator, setCollaborator] = useState({});
   const [listCollaborators, setListCollaborators] = useState(baseCollaborators);
   const [listFiltered, setListFiltered] = useState(listCollaborators);
 
@@ -18,11 +17,9 @@ function App() {
       <div className="container p-4">
         <FormAdd 
           collaborator={collaborator}
-          mail={mail}
           listCollaborators={listCollaborators} 
           listFiltered={listFiltered}
           setCollaborator={setCollaborator}
-          setMail={setMail}
           setListCollaborators={setListCollaborators}
           setListFiltered={setListFiltered} />
 
