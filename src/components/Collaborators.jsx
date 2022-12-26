@@ -16,8 +16,8 @@ const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborato
                 setListCollaborators(newList);
                 setListFiltered(newListFiltered);
             },1500);
+            selectRow(e);
         }
-        selectRow(e);
     }
 
     const selectRow = e => {
@@ -27,7 +27,7 @@ const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborato
 
     return(
         <div className="border shadow-sm rounded overflow-hidden">
-            <header className="px-3 pt-2 pb-3 bg-light border-bottom mb-3 row align-items-center">
+            <header className="px-3 py-2 bg-light border-bottom mb-3 row align-items-center">
                 <h2 className="col-12 col-sm-6 col-md-8 col-xl-9 h4 mb-2 mb-md-0 text-truncate">Listado de colaboradores</h2>
                 <div className="col-12 col-sm-6 col-md-4 col-xl-3">
                     <Filter list={list} setListFiltered={setListFiltered} />
@@ -36,7 +36,6 @@ const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborato
             <table className="table table-striped mb-0">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Correo</th>
                         <th scope="col"></th>
@@ -46,8 +45,7 @@ const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborato
                     {
                         listFiltered.map(
                             item => !item.delete && <tr key={item.id}>
-                                <td valign="middle">{item.id}</td>
-                                <td valign="middle">{item.name}</td>
+                                <td valign="middle" className="text-capitalize">{item.name}</td>
                                 <td valign="middle">{item.mail}</td>
                                 <td valign="middle" className="text-end">
                                     <button onClick={(e) => deleteCollaborator(e, item.id)} className="btn">
