@@ -33,7 +33,7 @@ const FormAdd = (props) => {
 
     return(
         <form onSubmit={add} className="mb-4 row align-items-end">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-4 mb-3 mb-md-0">
             <label htmlFor="input-name" className="small">Nombre colaborador</label>
             <input onChange={setValues}
                 id="input-name" 
@@ -41,7 +41,7 @@ const FormAdd = (props) => {
                 required
                 placeholder="Ej: Juan Hernandez" className="form-control w-100"/>
           </div>
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-4 mb-3 mb-md-0">
             <label htmlFor="input-email" className="small">Correo colaborador</label>
             <input onChange={setValues}
                 id="input-email" 
@@ -50,7 +50,7 @@ const FormAdd = (props) => {
                 required
                 placeholder="Ej: mail@mail.com" className="form-control w-100"/>
           </div>
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-4 mb-3 mb-md-0">
             <button className="btn btn-primary">Agregar colaborador</button>
           </div>
 
