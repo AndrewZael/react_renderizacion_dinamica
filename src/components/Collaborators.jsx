@@ -7,7 +7,7 @@ const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborato
     
     const deleteCollaborator = (e, id) => {
         const i = list.findIndex(e => e.id === id);
-        if(window.confirm(`¿Seguro que deseas eliminar al Colaborador ${list[i].name} cuyo ID es ${id}?`)){
+        if(window.confirm(`¿Seguro que deseas eliminar el colaborador ${list[i].name} con el mail ${list[i].mail}?`)){
             setTimeout(() => {
                 const newList = [...list];
                 const newListFiltered = [...listFiltered];
