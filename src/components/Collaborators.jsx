@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Filter from "./Filter.jsx";
+import Message from "./Message.jsx";
+import empty from '../assets/img/empty_street.svg';
 
 const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborators }) => {
     
@@ -59,6 +61,13 @@ const Collaborators = ({ list, listFiltered, setListFiltered, setListCollaborato
                     }
                 </tbody>
             </table>
+
+            {listFiltered.length < 1 ?
+            <Message 
+                img={empty} 
+                title="No existen resultados" 
+                message="No se encontraron resultados para tu búsqueda, inténtalo nuevamente." /> : null
+            }
         </div>
     )
 }
