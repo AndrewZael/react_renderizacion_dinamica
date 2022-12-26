@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.scss';
 import { useState } from 'react';
 import { baseCollaborators } from './data/baseCollaborators.js';
 import Collaborators from './components/Collaborators.jsx';

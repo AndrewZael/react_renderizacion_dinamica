@@ -12,8 +12,8 @@ const FormAdd = (props) => {
             setCollaboratorExist(true);
             setShowAlert(true);
         }else{
-            props.setListCollaborators([...props.listCollaborators, collaborator]);
-            props.setListFiltered([...props.listFiltered, collaborator]);
+            props.setListCollaborators([collaborator, ...props.listCollaborators]);
+            props.setListFiltered([collaborator, ...props.listFiltered]);
             e.target.reset();
             setCollaboratorExist(false);
         }
@@ -24,6 +24,7 @@ const FormAdd = (props) => {
       setCollaborator(prev => ({
         ...prev,
         ["id"]: (new Date().getTime()).toString(36),
+        ["delete"]: false,
         [name]: value
       }));
     }
@@ -31,7 +32,7 @@ const FormAdd = (props) => {
     const validatorCollaborator = mail => props.listCollaborators.some(c => c.mail === mail);
 
     return(
-        <form onSubmit={(e) => add(e)} className="mb-4 row align-items-end">
+        <form onSubmit={add} className="mb-4 row align-items-end">
           <div className="col-12 col-md-4">
             <label htmlFor="input-name" className="small">Nombre colaborador</label>
             <input onChange={setValues}

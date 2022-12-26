@@ -1,0 +1,14 @@
+.delete{
+    background-color: red;
+    opacity: 0;
+    transition: opacity ease-in 300ms 1s;
+    td{
+        color: #f4f4f4!important;
+        svg{
+            fill: #f4f4f4;
+        }
+    }
+}
+.pointer-events-none{
+    pointer-events: none;
+}

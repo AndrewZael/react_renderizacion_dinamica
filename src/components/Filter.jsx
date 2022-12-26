@@ -10,6 +10,7 @@ const Filter = ({ list, setListFiltered }) => {
             }
             );
             setListFiltered(newList);
+            console.log(newList);
         }}
             id="input-filter"   
             placeholder="Buscar..." className="form-control w-100"/>
